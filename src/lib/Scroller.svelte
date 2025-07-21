@@ -1,7 +1,7 @@
 <script>
     // `layout` can be either "right" or "left"
     // `sticky` and `scrolly` are the snippets passed in (see one of the examples)
-    let { layout, sticky, scrolly } = $props(); 
+    let { layout, sticky, scrolly } = $props();
 </script>
 
 <div class="wrapper {layout}">
@@ -39,6 +39,7 @@
     .right .sticky {
         order: 0;
     }
+
 
     .sticky,
     .scrolly {

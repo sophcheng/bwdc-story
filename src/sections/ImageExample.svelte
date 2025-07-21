@@ -26,5 +26,6 @@
     .duck-img {
         width: 25%;
         margin: 0px auto;
+        /* z-index: 10; */
     }
 </style>

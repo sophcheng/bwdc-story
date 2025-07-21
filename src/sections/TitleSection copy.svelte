@@ -3,7 +3,8 @@
     import Scroller from "../lib/Scroller.svelte";
     import ArticleText from "../lib/ArticleText.svelte";
 
-    // import { fade, fly } from "svelte/transition";
+    import { fade, fly } from "svelte/transition";
+    import ObservedArticleText from "../lib/ObservedArticleText.svelte";
     import ObservedDiv from "../lib/ObservedDiv.svelte";
 
     const title = "Stand Clear of the Closing Gap";
@@ -59,19 +60,49 @@
 
 <div class="car-window">
     <div class="window-container">
-        <!-- {#if windowIsVisible}
+        {#if windowIsVisible}
             <div in:fly={{ y: 200, duration: 500 }} out:fade>
-                <Window {title} {subtitle} />
+                <Window {title} {subtitle} caption="" />
             </div>
-        {/if} -->
+        {/if}
     </div>
-    <!-- <ObservedDiv callback={showWindowCallback} {options}> -->
+    <ObservedDiv callback={showWindowCallback} {options}>
         <div class="dashboard"></div>
         <div class="steering-wheel"></div>
-    <!-- </ObservedDiv> -->
+    </ObservedDiv>
 </div>
 <div class="left-pane"></div>
 <div>
+
+    <Scroller layout="stacked">
+        {#snippet sticky()}
+           
+            <div>
+                <p>
+                    You can use Svelte to add and remove data from a Highcharts
+                    chart.
+                </p>
+                <p>
+                    When you click the button above, a third group is toggled in
+                    the chart. Check out the source code to see how it's done.
+                </p>
+                <p>
+                    <strong
+                        >🤔 How might you use other HTML elements, like
+                        checkboxes or radio buttons, in a similar way to filter
+                        data?</strong
+                    >
+                </p>
+            </div>
+        {/snippet}
+
+        {#snippet scrolly()}
+                <ObservedDiv callback={removeWindowCallback} {options}>
+        <div></div>
+    </ObservedDiv>
+    <h1>She is lovely</h1>
+        {/snippet}
+    </Scroller>
 </div>
 
 <style>

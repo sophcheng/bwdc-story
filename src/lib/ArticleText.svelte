@@ -10,7 +10,7 @@
 
 <style>
     .article-text {
-        margin: 50vh auto;
+        margin: 20vh auto;
         width: 50%;
         background-color: #ff99fc;
         color: #007052;
