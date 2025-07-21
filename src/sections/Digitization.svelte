@@ -46,7 +46,8 @@
                 a creation can never be greater than its creator. Tech/AI learns from our actions, and captures the ugly truth
                 of conscious and unconscious biases/prejudices (ex. resume filter bias) and makes it accessible. All 
                 walks of work become increasingly digitized -- we have a duty to cultivate an inclusive, representative 
-                digital world to live in parallel with our physical.
+                digital world to live in parallel with our physical. (And we do see an upward trend in employment across racial demographics
+                -- growing accessibility (via digital world), growing representation, steady progress)
             </ArticleText>
         {/snippet}
     </Scroller>
