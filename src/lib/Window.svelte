@@ -3,7 +3,7 @@
     import "highcharts/modules/exporting";
     import { Chart } from "@highcharts/svelte";
 
-    let { title, subtitle, caption } = $props();
+    let { title, subtitle, caption, scroll } = $props();
 
     let options = {
         chart: {
@@ -84,18 +84,32 @@
     };
 </script>
 
+<svelte:window bind:scrollY={scroll} />
+
 <div class="title-card">
     <div class="window-box">
         <div class="header">
-            <button class="reddot" id="exit"></button>
-            <button class="yellowdot"></button>
-            <button class="greendot" id="author-info"></button>
+            <div
+                style:transform={`translate3d(${Math.min(scroll, 130)}px, 0px, 0)`}
+                style:transition={"1.5s"}
+            >
+                <button class="reddot"></button>
+                <button class="yellowdot"></button>
+                <button class="greendot"></button>
+            </div>
         </div>
         <div class="window-content">
             <div>
-                <h1>{title}</h1>
-                <p>{subtitle}</p>
-                <p>{caption}</p>
+                <i><h1>{title}</h1></i>
+                <p
+                    style:transform={`translate3d(${Math.min(scroll, 200)}px, 0px, 0)`}
+                    style:transition={"1.5s"}
+                >
+                    {subtitle}
+                </p>
+                <p>
+                    {caption}
+                </p>
             </div>
             <div class="chart">
                 <Chart {options} highcharts={Highcharts} />
@@ -107,39 +121,6 @@
 <style>
     * {
         box-sizing: border-box;
-    }
-
-    .reddot,
-    .yellowdot,
-    .greendot {
-        width: 50px;
-        height: 50px;
-        border-radius: 25px;
-        border-width: 8px;
-        border-color: goldenrod;
-    }
-
-    .reddot {
-        background-color: red;
-        margin-left: 50px;
-    }
-    .yellowdot {
-        background-color: rgb(251, 228, 112);
-    }
-    .greendot {
-        background-color: green;
-    }
-    .reddot:hover {
-        background-color: #ca1717;
-        transition: 0.2s;
-    }
-    .yellowdot:hover {
-        background-color: #ff7800;
-        transition: 0.2s;
-    }
-    .greendot:hover {
-        background-color: #4cbb17;
-        transition: 0.2s;
     }
 
     .title-card {
@@ -174,7 +155,9 @@
         align-self: center;
         border-style: outset;
         border-color: goldenrod;
-        box-shadow: 10px 10px #123123;
+        box-shadow:
+            0 4px 8px 0 rgba(0, 0, 0, 0.2),
+            0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
     .window-content {
         display: flex;
@@ -188,6 +171,7 @@
     }
 
     h1 {
+        font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
         font-size: 3rem;
         color: #873512;
         text-shadow:

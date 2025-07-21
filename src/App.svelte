@@ -4,6 +4,7 @@
   import TitleSection from "./sections/TitleSection.svelte";
   import Window from "./lib/Window.svelte";
   import Digitization from "./sections/Digitization.svelte";
+  import UnempChart from "./lib/UnempChart.svelte";
 
   let scroll;
   $: gradualRotation = Math.min(scroll ** 1.2, 90);
@@ -22,12 +23,13 @@
         title={"Stand Clear of the Closing Gap"}
         subtitle={"by Sophie Cheng"}
         caption={"(how physical + digital connection shape the road to employment + diversity)"}
+        {scroll}
       ></Window>
     </div>
     <div
-      style:transform={`translate3d(0, ${scroll <= 1500 ? scroll : 0}px, 0)`}
+      style:transform={`translate3d(0, ${scroll <= 4600 ? scroll : 0}px, 0)`}
     >
-      {#if scroll <= 1400}
+      {#if scroll <= 4500}
         <div in:fly={{ y: 200, duration: 500 }} out:fade>
           <TitleSection />
         </div>
@@ -39,8 +41,6 @@
       <Digitization />
     </div>
   {/if}
-
-  <ImageExample />
 </main>
 
 <style>

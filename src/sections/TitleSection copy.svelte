@@ -62,7 +62,7 @@
     <div class="window-container">
         {#if windowIsVisible}
             <div in:fly={{ y: 200, duration: 500 }} out:fade>
-                <Window {title} {subtitle} caption="" />
+                <Window {title} {subtitle} caption="" scroll=2/>
             </div>
         {/if}
     </div>

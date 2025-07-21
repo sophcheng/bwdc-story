@@ -16,10 +16,10 @@
 
 <style>
     .wrapper {
-        background-color: #f7f5eb;
+        /* background-color: #f7f5eb; */
         padding: min(100vh, 30rem) 1rem;
-        border-style: solid;
-        border-color: #4096fa;
+        /* border-style: solid; */
+        /* border-color: #4096fa; */
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -40,7 +40,6 @@
         order: 0;
     }
 
-
     .sticky,
     .scrolly {
         display: flex;
@@ -60,6 +59,7 @@
 
     .scrolly {
         z-index: 1;
+        min-height: 500vh;
     }
 
     @media (max-width: 768px) {

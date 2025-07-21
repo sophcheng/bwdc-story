@@ -1,78 +1,26 @@
 <script>
-    import Window from "../lib/Window.svelte";
-    import Scroller from "../lib/Scroller.svelte";
-    import ArticleText from "../lib/ArticleText.svelte";
-
-    // import { fade, fly } from "svelte/transition";
-    import ObservedDiv from "../lib/ObservedDiv.svelte";
-
-    const title = "Stand Clear of the Closing Gap";
-    const subtitle =
-        "how physical + digital connection have reshaped the road to employment";
-
-    let windowIsVisible = $state(true);
-
-    const options = {
-        threshold: [0.85, 0.95],
-    };
-
-    const simpleCallback = (entries, observer) => {
-        entries.forEach((entry) => {
-            const elem = entry.target;
-
-            if (entry.intersectionRatio >= 0.9) {
-                // "active" state
-                elem.style.backgroundColor = "#e3ff00";
-            } else if (entry.intersectionRatio < 0.9) {
-                // "inactive" state
-                elem.style.backgroundColor = "#888888";
-            }
-        });
-    };
-
-    const showWindowCallback = (entries, observer) => {
-        entries.forEach((entry) => {
-            const elem = entry.target;
-
-            if (entry.intersectionRatio >= 0.9) {
-                elem.style.backgroundColor = "#e3ff00";
-                windowIsVisible = true;
-            } else if (entry.intersectionRatio < 0.9) {
-                elem.style.backgroundColor = "#888888";
-            }
-        });
-    };
-
-    const removeWindowCallback = (entries, observer) => {
-        entries.forEach((entry) => {
-            const elem = entry.target;
-
-            if (entry.intersectionRatio >= 0.9) {
-                elem.style.backgroundColor = "#e3ff00";
-                windowIsVisible = false;
-            } else if (entry.intersectionRatio < 0.9) {
-                elem.style.backgroundColor = "#888888";
-            }
-        });
-    };
 </script>
 
 <div class="car-window">
-    <div class="window-container">
-        <!-- {#if windowIsVisible}
-            <div in:fly={{ y: 200, duration: 500 }} out:fade>
-                <Window {title} {subtitle} />
-            </div>
-        {/if} -->
-    </div>
-    <!-- <ObservedDiv callback={showWindowCallback} {options}> -->
-        <div class="dashboard"></div>
+    <div class="window-container"></div>
+
+    <div class="panes">
+        <div class="dashboard">
+            <div class="backboard"></div>
+        </div>
+        <div class="blackboard"></div>
+
         <div class="steering-wheel"></div>
-    <!-- </ObservedDiv> -->
+    </div>
+    <img
+        class="dashboard-view"
+        src="cityViewBars.png"
+        alt="City view from car dashboard"
+    />
 </div>
 <div class="left-pane"></div>
-<div>
-</div>
+
+<div class="right-pane"></div>
 
 <style>
     .steering-wheel {
@@ -82,7 +30,7 @@
         height: 300px;
         border-width: 50px;
         border-color: white;
-        background-color: #076bbf;
+        background-color: #500073;
         position: absolute;
         z-index: 1;
         top: 550px;
@@ -93,7 +41,7 @@
     }
 
     .car-window {
-        background-color: black;
+        background-color: #f4f7f6;
         position: relative;
     }
 
@@ -103,20 +51,40 @@
         z-index: 2;
     }
 
-    .dashboard {
-        background-color: #3086cc;
-        border-radius: 200px 300px 0 0;
-        width: 100%;
+    .dashboard,
+    .blackboard {
+        background-color: #873777;
+        border-radius: 200px 200px 0 0;
+        width: 1000px;
+        margin-left: -10px;
         height: 300px;
         position: absolute;
         z-index: 1;
         top: 500px;
     }
+    .blackboard {
+        background-color: #9e6090;
+        left: 500px;
+        z-index: -1;
+    }
+    .backboard {
+        height: 200px;
+        border-radius: 300px 300px 0 0;
+        background-color: purple;
+        opacity: 0.5;
+    }
+    .dashboard-view {
+        position: absolute;
+        z-index: 0;
+        width: 100%;
+        margin-top: -30px;
+    }
 
-    .left-pane {
+    .left-pane,
+    .right-pane {
         width: 700px;
         height: 390px;
-        background-color: #076bbf;
+        background-color: #500073;
         box-shadow:
             0 4px 8px 0 rgba(0, 0, 0, 0.2),
             0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -125,5 +93,17 @@
     .left-pane {
         transform: rotate(60deg);
         transform-origin: 0 0;
+        margin-top: -100px;
+    }
+    .right-pane {
+        transform: rotate(-60deg);
+        transform-origin: 30% 0;
+        margin-left: 1000px;
+        margin-top: 100px;
+        border-radius: 50px;
+    }
+    .panes {
+        display: flex;
+        flex-direction: row;
     }
 </style>

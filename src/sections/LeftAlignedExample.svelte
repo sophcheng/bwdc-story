@@ -1,4 +1,4 @@
-<!-- <script>
+<script>
     import * as Highcharts from "highcharts";
     import "highcharts/modules/exporting";
     import { Chart } from "@highcharts/svelte";
@@ -76,7 +76,7 @@
         {#snippet sticky()}
             <div class="chart">
                 <Chart bind:chart {options} highcharts={Highcharts} />
-            </div> -->
+            </div> 
             <!-- <button on:click={toggleThirdSeries} class="toggle-button">
                 {thirdSeriesVisible ? "Remove Group 3" : "Add Group 3"}
             </button>
@@ -149,4 +149,4 @@
         transform: translateY(2px);
         box-shadow: 0 2px 0 #007052;
     }
-</style> -->
+</style>
