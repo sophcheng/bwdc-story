@@ -1,9 +1,9 @@
 <script>
-    let { children } = $props();
+    let { children, color } = $props();
 </script>
 
 <div class="article">
-    <div class="header">
+    <div class="header" style="background-color: {color}">
         <button class="reddot"></button>
         <button class="yellowdot"></button>
         <button class="greendot"></button>
@@ -27,7 +27,7 @@
         font-size: x-large;
         width: 60%;
         background-color: #f0ecd9;
-        color: #007052;
+        color: #873512;
         border: solid white 3px;
         border-radius: 25px;
         padding: 0 0 20px 0px;

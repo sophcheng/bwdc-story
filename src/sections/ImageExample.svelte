@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
     import Scroller from "../lib/Scroller.svelte";
     import ArticleText from "../lib/ArticleText.svelte";
 </script>
@@ -28,4 +28,4 @@
         margin: 0px auto;
         /* z-index: 10; */
     }
-</style>
+</style> -->

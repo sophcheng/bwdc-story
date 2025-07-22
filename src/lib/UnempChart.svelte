@@ -2,7 +2,6 @@
     import * as Highcharts from "highcharts";
     import "highcharts/modules/exporting";
     import { Chart } from "@highcharts/svelte";
-    import { readable } from "svelte/store";
 
     let chart;
     const options = {

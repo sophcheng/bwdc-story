@@ -35,10 +35,10 @@
                     class="hand-img"
                     src="stopHand.png"
                     alt="Hand resembling crosswalk stopping hand."
-                    style:transform={`translate3d(${scroll >= 2720 ? 40 : 0}px, ${scroll >= 1800 ? 0 : scroll}px, 0)
-                                        scale(${scroll >= 3400 ? 3 : 1})
+                    style:transform={`translate3d(${scroll >= 2720 ? 40 : 0}px, ${scroll >= 1800 ? 0 : scroll}px, ${scroll >= 3600 ? 1 : 200}px) scale(${scroll >= 3400 ? 3 : 1})
                     `}
                     style:opacity={scroll >= 3500 ? 0 : 1}
+                    style:z-index={scroll >= 3500 ? -10 : 2}
                 />
                 <div
                     class="walkbox"
@@ -59,20 +59,20 @@
         {/snippet}
 
         {#snippet scrolly()}
-            <ArticleText>
+            <ArticleText color="#3086cc">
                 A wise man (my English teacher) once said that emotion is
                 derived from an inability to act. <strong
                     >Year by year, this gap between thought and action grows
                     thinner, thanks to technology.</strong
                 >
             </ArticleText>
-            <ArticleText>
+            <ArticleText color="#3086cc">
                 5 years ago, the COVID pandemic ignited an unprecedented push
                 towards a digital society. <strong
                     >But what does "digital" mean, anyway?</strong
                 >
             </ArticleText>
-            <ArticleText>
+            <ArticleText color="#3086cc">
                 <strong>"Digit"</strong> has Latin roots, meaning
                 <strong>"of the toe"</strong>
                 or <strong>"of the finger"</strong>. It also refers to a
@@ -80,19 +80,22 @@
                 -- of the physical and of numbers -- fuzzily mirrors our current
                 world!
             </ArticleText>
-            <ArticleText>
-                A wise man (my English teacher) once spoke of Frankenstein: a
-                creation can never be greater than its creator.
+            <ArticleText color="coral">
+                A wise man (my English teacher) once spoke on Frankenstein: <strong
+                    >a creation can never be greater than its creator.</strong
+                >
             </ArticleText>
-            <ArticleText>
+            <ArticleText color="coral">
                 Tech/AI learns from our actions, and captures the ugly truth of
-                conscious and unconscious biases/prejudices (ex. resume filter
-                bias) and makes it accessible.
+                conscious and unconscious prejudices, and makes these biases,
+                among a multitude of other things, accessible.
             </ArticleText>
-            <ArticleText>
-                All walks of work are becoming increasingly digitized -- we have
-                a duty to cultivate an inclusive, representative digital world
-                to live in parallel with our physical.
+            <ArticleText color="purple">
+                All walks of work are becoming increasingly digitized -- <strong
+                    style="color: purple;"
+                    >we have a duty to cultivate an inclusive, representative
+                    digital world to live in parallel with our physical!</strong
+                >
             </ArticleText>
             <!-- Compare to the internet access. Discuss increasing
                 technologization, resume bias. Importance of diversity in
@@ -133,12 +136,12 @@
         z-index: 2;
         position: relative;
         left: 250px;
-        bottom: -400px;
+        bottom: -390px;
         transition: 0.3s;
     }
     .walkbox {
         position: relative;
-        z-index: 0;
+        z-index: 1;
         width: 550px;
         height: 400px;
         background-color: #123123;
@@ -146,6 +149,7 @@
         border-width: 15px;
         border-color: goldenrod;
         border-style: outset;
+        bottom: 20px;
     }
     .hand-container {
         position: absolute;
@@ -196,6 +200,6 @@
         overflow-y: hidden;
     }
     .chart {
-        position: relative;
+        /* position: relative; */
     }
 </style>
