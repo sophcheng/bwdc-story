@@ -19,4 +19,10 @@ Digital illustrations created by Sophie Cheng.
 
 (# of tens per 100 NYers: [Data USA](https://datausa.io/profile/geo/new-york-ny#:~:text=The%205%20largest%20ethnic%20groups,(Hispanic)%20(7.12%25).)).
 
+Remaining datasets sourced from [BWDC](https://blackwealthdata.org/).
+
+Referenced parallax scrolling tutorial from [Scott Tolinski (Syntax on YouTube)](https://www.youtube.com/watch?v=K3CM7j9GIxk&ab_channel=Syntax).
+
+Svelte website template courtesy of [Jasmine Samra, Kode With Klossy](https://github.com/jasminesamra/kwk-scrollytelling-template).
+
 Repo created using vite (`npm create vite@6`).
