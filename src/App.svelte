@@ -4,6 +4,7 @@
   import Window from "./lib/Window.svelte";
   import Digitization from "./sections/Digitization.svelte";
   import Postcard from "./lib/Postcard.svelte";
+  import ScreenSizeRedirect from "./sections/ScreenSizeRedirect.svelte";
 
   let scroll;
 
@@ -12,30 +13,32 @@
 
 <svelte:window bind:scrollY={scroll} />
 <!-- <h2 class="scroll-counter">{scroll}</h2> -->
-<main>
+<div class="screen-size-notice">
+  <ScreenSizeRedirect />
+</div>
+
+<main class="container">
   <!-- Title Card -->
-  <div class="container">
-    <div
-      class="window-container"
-      style:transform={`rotate(${gradualRotation}deg) translate3d(${scroll}px, ${scroll}px, 0)`}
-    >
-      <Window
-        title={"Stand Clear of the Closing Gap"}
-        subtitle={"by Sophie Cheng"}
-        caption={"(how physical + digital connection shape the road to employment + diversity)"}
-        {scroll}
-      ></Window>
-    </div>
-    <div
-      style:transform={`translate3d(0, ${scroll <= 4700 ? scroll : 0}px, 0)`}
-    >
-      {#if scroll <= 4600}
-        <div in:fly={{ y: 200, duration: 500 }} out:fade>
-          <TitleSection />
-        </div>
-      {/if}
-    </div>
+  <!-- <div class="container"> -->
+  <div
+    class="window-container"
+    style:transform={`rotate(${gradualRotation}deg) translate3d(${scroll}px, ${scroll}px, 0)`}
+  >
+    <Window
+      title={"Stand Clear of the Closing Gap"}
+      subtitle={"by Sophie Cheng"}
+      caption={"(how physical + digital connection shape the road to employment + diversity)"}
+      {scroll}
+    ></Window>
   </div>
+  <div style:transform={`translate3d(0, ${scroll <= 4700 ? scroll : 0}px, 0)`}>
+    {#if scroll <= 4600}
+      <div in:fly={{ y: 200, duration: 500 }} out:fade>
+        <TitleSection />
+      </div>
+    {/if}
+  </div>
+
   {#if scroll >= 500}
     <div in:fly={{ y: 200, duration: 500 }} out:fade>
       <Digitization />
@@ -46,6 +49,7 @@
       <Postcard {scroll}></Postcard>
     </div>
   {/if}
+  <!-- </div> -->
 </main>
 
 <style>
@@ -61,5 +65,21 @@
   }
   .container {
     position: relative;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+  .screen-size-notice {
+    display: none;
+  }
+
+  @media screen and (max-width: 1100px) {
+    .container {
+      display: none;
+    }
+    .screen-size-notice {
+      display: flex;
+    }
   }
 </style>
