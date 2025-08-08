@@ -38,7 +38,6 @@
     }
 
     .car-window {
-        background-color: #f4f7f6;
         position: relative;
     }
 
