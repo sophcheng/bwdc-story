@@ -28,6 +28,7 @@
       title={"Stand Clear of the Closing Gap"}
       subtitle={"by Sophie Cheng"}
       caption={"(how physical + digital connection shape the road to employment + diversity)"}
+      subcaption="scroll to continue"
       {scroll}
     ></Window>
   </div>

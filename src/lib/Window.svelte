@@ -3,7 +3,7 @@
     import "highcharts/modules/exporting";
     import { Chart } from "@highcharts/svelte";
 
-    let { title, subtitle, caption, scroll } = $props();
+    let { title, subtitle, caption, scroll, subcaption } = $props();
 
     let options = {
         chart: {
@@ -110,6 +110,14 @@
                 <p>
                     {caption}
                 </p>
+                <i
+                    ><p
+                        style:transform={`translate3d(${Math.min(scroll, 180)}px, 0px, 0)`}
+                        style:transition={"1.5s"}
+                    >
+                        ({subcaption})
+                    </p></i
+                >
             </div>
             <div class="chart">
                 <Chart {options} highcharts={Highcharts} />
@@ -186,6 +194,24 @@
         color: #873512;
         margin-top: 1rem;
         margin-left: 2em;
+        min-height: 1em;
+    }
+
+    i p {
+        opacity: 0;
+        animation: delayed-entry 1s ease forwards;
+        animation-delay: 1.5s;
+    }
+
+    @keyframes delayed-entry {
+        0% {
+            opacity: 0;
+            color: red;
+        }
+        100% {
+            opacity: 1;
+            color: #3086cc;
+        }
     }
 
     @media (max-width: 600px) {
